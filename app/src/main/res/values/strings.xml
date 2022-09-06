@@ -21,8 +21,8 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
         maecenas nisi ridiculus id conubia hac primis sem ullamcorper porttitor, rutrum ac sodales ultrices vestibulum cum leo semper fusce porta eu fermentum. Proin nisi suspendisse class facilisi curabitur quisque, fusce vulputate semper a nulla velit, duis in orci faucibus turpis. Risus metus magnis aliquam accumsan laoreet congue per, tempus purus et odio senectus sodales vulputate, ligula malesuada dis habitasse nullam pellentesque.
     </string>
     <string name="close_activity_description">close activity</string>
-    <string name="enter_participants_number">Enter participants number</string>
+    <string name="enter_participants_number">Enter participants number (optional)</string>
     <string name="participants_validation_error">Participants must be a number between 1 and 8</string>
-    <string name="agree_terms">Terms and Conditions</string>
+    <string name="agree_terms">Agree on <b>Terms and Conditions</b></string>
     <string name="terms_error">Please agree on terms</string>
 </resources>

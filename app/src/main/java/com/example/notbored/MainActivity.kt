@@ -8,85 +8,52 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.notbored.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         supportActionBar?.hide()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
-
-
-        val startButton = findViewById<Button>(R.id.startButton)
-        val validation = BoredValidation(startButton)
-        val validationError = findViewById<TextView>(R.id.participantValidationError)
-        val termsAndConditionLink = findViewById<TextView>(R.id.termsConditionsLink)
-        termsAndConditionLink.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        val participantsInput = findViewById<EditText>(R.id.participantsEditText)
-        val termsCheckBox = findViewById<CheckBox>(R.id.termsCheckBox)
-        val termsError = findViewById<TextView>(R.id.termsValidationError)
-        val goToTermsAndConditions = Intent(this,
-            TermsAndConditions::class.java)
-
-        val clickableSpan: ClickableSpan = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                widget.cancelPendingInputEvents()
-                startActivity(goToTermsAndConditions)
-            }
-
-            override fun updateDrawState(ds: TextPaint) {
-                super.updateDrawState(ds)
-                ds.isUnderlineText = false
-                ds.isFakeBoldText = true
-            }
+        // TODO change Toast to activity with goToActivity()
+        validation{
+            Toast.makeText(this,"voy a la activity",Toast.LENGTH_SHORT)
+                .show()
         }
 
-        val linkText = SpannableString("Terms and Conditions")
-        linkText.setSpan(clickableSpan, 0, linkText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        val cs = TextUtils.expandTemplate(
-            "Agree on ^1", linkText
+        Utils.customCheckBox(binding.termsCheckBox){
+            goToActivity(TermsAndConditionsActivity::class.java)
+        }
+
+
+
+
+
+    }
+
+    private fun validation(function:()-> Unit){
+        val validation = BoredValidation(binding.startButton)
+        validation.validateInputText(
+            binding.participantsEditText,
+            binding.participantValidationError
         )
+        validation.validateTerms(
+            binding.termsCheckBox,
+            binding.termsValidationError,
+            function
+        )
+    }
 
-        termsCheckBox.text = cs
-        termsCheckBox.movementMethod = LinkMovementMethod.getInstance();
-
-
-
-
-        participantsInput.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                validation.validateParticipants(p0,validationError)
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-            }
-
-        })
-
-        termsAndConditionLink.setOnClickListener {
-            startActivity(goToTermsAndConditions)
-        }
-
-        startButton.setOnClickListener {
-            if(!termsCheckBox.isChecked)termsError.visibility = View.VISIBLE else Log.d(
-                "kevin",
-                "onCreate: go to actividades screen "
-            )
-        }
-
-        termsCheckBox.setOnCheckedChangeListener { _, b ->
-            if(b) termsError.visibility = View.GONE
-        }
-
-
+    private fun goToActivity(cls : Class<*>){
+        val goToActivity = Intent(this,cls)
+        startActivity(goToActivity)
     }
 }

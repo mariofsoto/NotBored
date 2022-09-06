@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TermsAndConditions">
+    tools:context=".TermsAndConditionsActivity">
 
     <ImageView
         android:id="@+id/closeIcon"
@@ -24,9 +24,11 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="52dp"
         android:text="@string/terms_label"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:layout_marginStart="44dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/termsActivityAppTitle"
-        app:layout_constraintEnd_toEndOf="@+id/termsActivityAppTitle" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/termsActivityAppTitle"
