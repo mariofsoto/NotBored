@@ -14,6 +14,4 @@ object RetrofitClient {
             .build()
     }
 
-
-
 }
