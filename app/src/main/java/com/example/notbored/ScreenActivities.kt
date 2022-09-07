@@ -1,5 +1,6 @@
 package com.example.notbored
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -22,6 +23,11 @@ class ScreenActivities : AppCompatActivity() {
         lvDatos.adapter = arrayAdapter
         lvDatos.setOnItemClickListener(){parent, view, position, id ->
             Toast.makeText(this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show()
+            goToActivity(SuggestionActivity::class.java)
         }
+    }
+    private fun goToActivity(cls : Class<*>){
+        val goToActivity = Intent(this,cls)
+        startActivity(goToActivity)
     }
 }

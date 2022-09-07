@@ -20,11 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // TODO change Toast to intent activity with goToActivity() function
+
         validation{
-            Toast.makeText(this,
-                "Going to next activity",
-                Toast.LENGTH_SHORT).show()
+            goToActivity(ScreenActivities::class.java)
             savePreferences()
         }
         Utils.customCheckBox(binding.termsCheckBox){

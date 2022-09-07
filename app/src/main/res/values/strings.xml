@@ -27,4 +27,5 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
     <string name="terms_error">Please agree on terms</string>
     <string name="seekbar_text">Price range : %1$s</string>
     <string name="seekbar_random_price">Random price</string>
+    <string name="activities">Activities</string>
 </resources>

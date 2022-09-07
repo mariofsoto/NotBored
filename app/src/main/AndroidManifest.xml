@@ -21,6 +21,14 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".ScreenActivities"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".SuggestionActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

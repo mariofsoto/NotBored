@@ -16,7 +16,8 @@ class SuggestionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.topAppBar.setNavigationOnClickListener {
-            Toast.makeText(this, "HOLAA", Toast.LENGTH_SHORT).show()
+            onBackPressed()
+
         }
 
 
