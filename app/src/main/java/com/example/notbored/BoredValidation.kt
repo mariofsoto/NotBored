@@ -1,14 +1,11 @@
 package com.example.notbored
 
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
+
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 
 class BoredValidation(private val button : Button) {

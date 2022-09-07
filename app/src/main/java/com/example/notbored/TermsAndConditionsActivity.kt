@@ -2,7 +2,7 @@ package com.example.notbored
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.util.Log
 import com.example.notbored.databinding.ActivityTermsAndConditionsBinding
 
 class TermsAndConditionsActivity : AppCompatActivity() {
@@ -11,7 +11,6 @@ class TermsAndConditionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTermsAndConditionsBinding.inflate(layoutInflater)
-        supportActionBar?.hide()
         setContentView(binding.root)
 
         binding.closeIcon.setOnClickListener {

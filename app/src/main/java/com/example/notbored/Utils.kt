@@ -1,5 +1,6 @@
 package com.example.notbored
 
+import android.content.res.Resources
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
@@ -7,6 +8,8 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.CheckBox
+import android.widget.SeekBar
+import android.widget.TextView
 
 object Utils {
 
@@ -30,6 +33,12 @@ object Utils {
         checkBox.text = partialLinkText
         checkBox.movementMethod = LinkMovementMethod.getInstance()
     }
+
+
+
+
+
+
 
 
 

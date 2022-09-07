@@ -8,8 +8,9 @@
         <entry key="app/src/main/res/drawable/close_icon_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21052631578947367" />
         <entry key="app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/pantalla_prueba.xml" value="0.25" />
       </map>
     </option>
   </component>
