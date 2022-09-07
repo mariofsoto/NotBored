@@ -19,6 +19,7 @@ class SuggestionActivity : AppCompatActivity() {
             Toast.makeText(this, "HOLAA", Toast.LENGTH_SHORT).show()
         }
 
+
         binding.topAppBar.title = "Hola"
 
     }
