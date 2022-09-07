@@ -14,7 +14,7 @@
         android:theme="@style/Theme.NotBored"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ScreenActivities"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
