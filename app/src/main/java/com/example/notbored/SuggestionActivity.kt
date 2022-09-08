@@ -35,10 +35,20 @@ class SuggestionActivity : AppCompatActivity() {
 
 
         binding.btnRetry.setOnClickListener {
+            setLayoutVisibility(false)
             observeEvent(type.lowercase(),participants,price)
         }
     }
+
+
+    private fun setLayoutVisibility(visible: Boolean) {
+        binding.progressBar.visibility = if(visible) View.GONE else View.VISIBLE
+        binding.SuggestionLayout.visibility = if (visible) View.VISIBLE else View.GONE
+
+    }
+
     private fun updateViews(binding: ActivitySuggestionBinding, event : BoredEvent){
+        setLayoutVisibility(true)
         binding.tvActivityLabel.text = event.activity
         binding.tvParticipantsCount.text = event.participants.toString()
         binding.tvPrice.text = getPrice(event.price)
