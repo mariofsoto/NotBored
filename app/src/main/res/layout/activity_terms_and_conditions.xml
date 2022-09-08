@@ -12,10 +12,13 @@
         android:layout_height="32dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/close_icon"
-        android:contentDescription="@string/close_activity_description" />
+        android:contentDescription="@string/close_activity_description"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/termsActivity"

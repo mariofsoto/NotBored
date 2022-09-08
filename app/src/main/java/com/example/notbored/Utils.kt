@@ -1,5 +1,7 @@
 package com.example.notbored
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.res.Resources
 import android.text.SpannableString
 import android.text.Spanned
@@ -32,6 +34,22 @@ object Utils {
 
         checkBox.text = partialLinkText
         checkBox.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    fun getSharedParticipants(context : Context) : Int{
+        val boredPreferences = context.getSharedPreferences(BORED_PREFERENCES, MODE_PRIVATE)
+        val editPrefs = boredPreferences.edit()
+        val participants = boredPreferences.getInt(PARTICIPANTS,0)
+        editPrefs.apply()
+        return participants
+    }
+
+    fun getSharedPrice(context : Context) : Float{
+        val boredPreferences = context.getSharedPreferences(BORED_PREFERENCES, MODE_PRIVATE)
+        val editPrefs = boredPreferences.edit()
+        val price = boredPreferences.getFloat(PRICE,0f)
+        editPrefs.apply()
+        return price
     }
 
 

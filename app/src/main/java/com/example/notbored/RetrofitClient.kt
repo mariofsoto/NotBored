@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitClient {
-    val BASE_URL = "http://www.boredapi.com/"
+    val BASE_URL = "http://www.boredapi.com/api/"
 
     fun getInstance() : Retrofit{
         return Retrofit.Builder()
@@ -13,5 +13,4 @@ object RetrofitClient {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 }

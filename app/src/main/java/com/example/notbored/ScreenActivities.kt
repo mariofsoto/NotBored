@@ -6,28 +6,48 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
+import com.example.notbored.databinding.ActivitiesScreenBinding
 
 class ScreenActivities : AppCompatActivity() {
+    private lateinit var binding: ActivitiesScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activities_screen)
+        binding = ActivitiesScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         val arrayAdapter: ArrayAdapter<*>
 
         val actividades = mutableListOf("Education","Recreational","Social","Diy","Charity","Cooking","Relaxation","Music","Busywork")
-        val lvDatos = findViewById<ListView>(R.id.lvActividades)
-
-        supportActionBar?.hide()
 
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, actividades)
-        lvDatos.adapter = arrayAdapter
-        lvDatos.setOnItemClickListener(){parent, view, position, id ->
+        binding.lvActivities.adapter = arrayAdapter
+        binding.lvActivities.setOnItemClickListener(){parent, _, position, _ ->
             Toast.makeText(this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show()
-            goToActivity(SuggestionActivity::class.java)
+
+
+            goToActivity(SuggestionActivity::class.java, parent.getItemAtPosition(position).toString())
         }
+        binding.topAppBarActivities.setOnMenuItemClickListener {menuItem ->
+            when (menuItem.itemId) {
+                R.id.randomCategory -> {
+                    goToActivity(SuggestionActivity::class.java,"random")
+                    true
+
+                }
+                else -> false
+            }
+        }
+
+
+
+
+
     }
-    private fun goToActivity(cls : Class<*>){
+    private fun goToActivity(cls : Class<*>, type : String){
         val goToActivity = Intent(this,cls)
+            .putExtra("type",type)
         startActivity(goToActivity)
     }
 }
