@@ -72,6 +72,7 @@ class Repository {
         liveData {
             try {
                 val response = when{
+                    type == "random" -> api.getBoredEvent(participants,price)
                     price < 0f && participants < 0 -> api.getBoredEvent(type)
                     participants < 0 -> api.getBoredEvent(type,price)
                     price < 0f -> api.getBoredEvent(type,participants)
