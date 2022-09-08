@@ -40,7 +40,11 @@ class SuggestionActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Function that sets progressBar and main layout visibility
+     * @param visible if true the layout is set to visible and the progressBar is set to gone
+     * else shows the progress bar and hide the layout
+     **/
     private fun setLayoutVisibility(visible: Boolean) {
         binding.progressBar.visibility = if(visible) View.GONE else View.VISIBLE
         binding.SuggestionLayout.visibility = if (visible) View.VISIBLE else View.GONE
@@ -74,6 +78,16 @@ class SuggestionActivity : AppCompatActivity() {
             updateViews(binding,it)
         }
     }
+
+    /**
+     * Function that returns the price according to the following scale
+        Free: the value is zero.
+        Low: The value is greater than zero and less than or equal to 0.3
+        Medium: the value is greater than 0.6 and less than or equal to 0.6
+        High: the value is greater than 0.6
+     * @param price of type float
+     * @return string with the price according to the scale
+     **/
     private fun getPrice(price: Float): String = when {
         price == 0.0f -> "Free"
         price > 0.0f && price <= 0.3f  -> "Low"
