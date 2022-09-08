@@ -59,4 +59,7 @@ dependencies {
 
     //picasso
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    //livedata
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 }

@@ -7,16 +7,33 @@ import retrofit2.http.Query
 
 interface BoredApi {
 
-    @GET("api/activity/")
-    suspend fun getRandomActivity() : Response<BoredEvent>
+    @GET("activity")
+    suspend fun getBoredEvent() : Response<BoredEvent>
 
-    @GET("api/activity")
-    suspend fun getRandomWithParticipants(@Query("participants") participants : Int) :
-            Response<BoredEvent>
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("type") type : String) : Response<BoredEvent>
 
-    @GET("api/activity")
-    suspend fun getSpecificActivity(@Query("type") type:String, @Query("participants")
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("price") price : Float) : Response<BoredEvent>
+
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("participants") participants : Int) : Response<BoredEvent>
+
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("type") type:String, @Query("participants")
     participants: Int) : Response<BoredEvent>
+
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("type") type:String, @Query("participants")
+    participants: Int, @Query("price") price : Float) : Response<BoredEvent>
+
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("participants")
+    participants: Int, @Query("price") price : Float) : Response<BoredEvent>
+
+    @GET("activity")
+    suspend fun getBoredEvent(@Query("type") type: String, @Query("price") price : Float) : Response<BoredEvent>
+
 
 
 }

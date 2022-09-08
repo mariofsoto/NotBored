@@ -12,22 +12,27 @@ class ScreenActivities : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activities_screen)
 
+
         val arrayAdapter: ArrayAdapter<*>
 
         val actividades = mutableListOf("Education","Recreational","Social","Diy","Charity","Cooking","Relaxation","Music","Busywork")
         val lvDatos = findViewById<ListView>(R.id.lvActividades)
 
-        supportActionBar?.hide()
-
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, actividades)
         lvDatos.adapter = arrayAdapter
         lvDatos.setOnItemClickListener(){parent, view, position, id ->
             Toast.makeText(this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show()
-            goToActivity(SuggestionActivity::class.java)
+
+
+            goToActivity(SuggestionActivity::class.java, parent.getItemAtPosition(position).toString())
         }
+
+
+
     }
-    private fun goToActivity(cls : Class<*>){
+    private fun goToActivity(cls : Class<*>, type : String){
         val goToActivity = Intent(this,cls)
+            .putExtra("type",type)
         startActivity(goToActivity)
     }
 }
