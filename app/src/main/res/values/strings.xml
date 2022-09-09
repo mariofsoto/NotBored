@@ -25,7 +25,11 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
     <string name="participants_validation_error">Participants must be a number between 1 and 8</string>
     <string name="agree_terms">Agree on <b>Terms and Conditions</b></string>
     <string name="terms_error">Please agree on terms</string>
-    <string name="seekbar_text">Price range : %1$s</string>
+    <string name="seekbar_text">Price range</string>
     <string name="seekbar_random_price">Random price</string>
     <string name="activities">Activities</string>
+    <string-array name="rangeSliderValue">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
 </resources>

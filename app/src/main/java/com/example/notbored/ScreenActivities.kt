@@ -42,8 +42,6 @@ class ScreenActivities : AppCompatActivity() {
 
 
 
-
-
     }
     private fun goToActivity(cls : Class<*>, type : String){
         val goToActivity = Intent(this,cls)

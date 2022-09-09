@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/bored_light"
     android:layout_height="match_parent"
     tools:context=".TermsAndConditionsActivity">
 
@@ -26,8 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="52dp"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/bored_text"
         android:text="@string/terms_label"
-        android:textSize="22sp"
+        android:textSize="@dimen/title"
         android:layout_marginStart="44dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/termsActivityAppTitle"
@@ -39,7 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
         android:text="@string/not_bored_title"
-        android:textSize="28sp"
+        android:textSize="@dimen/title"
+        android:letterSpacing="0.1"
+        android:fontFamily="@font/roboto_medium"
+        android:textStyle="bold"
+        android:textColor="@color/bored_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +72,9 @@
                 android:id="@+id/loremIpsumTerms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/bored_text"
                 android:text="@string/terms_and_conditions" />
         </LinearLayout>
     </ScrollView>

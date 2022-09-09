@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="title" type="dimen">20sp</item>
+    <item name="body" type="dimen">14sp</item>
+    <item name="inputs" type="dimen">16sp</item>
+    <item name="error" type="dimen">12sp</item>
+</resources>

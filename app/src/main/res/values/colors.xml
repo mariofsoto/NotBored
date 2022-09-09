@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#DC1010</color>
     <color name="grey">#808080</color>
+    <color name="bored_dark">#0991E9</color>
+    <color name="bored_light">#DBF4FE</color>
+    <color name="bored_text">#050236</color>
 </resources>
