@@ -2,7 +2,6 @@ package com.example.notbored
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import android.content.res.Resources
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
@@ -10,11 +9,20 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.CheckBox
-import android.widget.SeekBar
-import android.widget.TextView
+import java.util.*
+
+const val TAG = "bootcamp"
+const val BORED_PREFERENCES = "bored"
+
 
 object Utils {
 
+/**
+ * receives a checkbox and creates a custom one with a spannable clickable string
+ * for terms and conditions
+ * @param checkBox [CheckBox] checkbox for terms and conditions
+ * @param function executes this functions when clickable string is clicked
+ * */
     fun customCheckBox(checkBox : CheckBox, function: () -> Unit) {
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
@@ -36,21 +44,27 @@ object Utils {
         checkBox.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    fun getSharedParticipants(context : Context) : Int{
+    /**
+     * @return the desired value from shared preferences folder
+     * @param key [BoredPreferences] enum class with specific preference value
+     * @sample BoredPreferences.PARTICIPANTS
+     * @sample BoredPreferences.MAX_PRICE
+     * @sample BoredPreferences.MIN_PRICE
+     * */
+    fun getSharedValue(context: Context, key:BoredPreferences) : Any {
         val boredPreferences = context.getSharedPreferences(BORED_PREFERENCES, MODE_PRIVATE)
         val editPrefs = boredPreferences.edit()
-        val participants = boredPreferences.getInt(PARTICIPANTS,0)
+        val value = when(key){
+            BoredPreferences.PARTICIPANTS -> boredPreferences.getInt(key.value,0)
+            BoredPreferences.MAX_PRICE -> boredPreferences.getFloat(key.value,0f)
+            BoredPreferences.MIN_PRICE -> boredPreferences.getFloat(key.value,0f)
+        }
         editPrefs.apply()
-        return participants
+        return value
+
     }
 
-    fun getSharedPrice(context : Context) : Float{
-        val boredPreferences = context.getSharedPreferences(BORED_PREFERENCES, MODE_PRIVATE)
-        val editPrefs = boredPreferences.edit()
-        val price = boredPreferences.getFloat(PRICE,0f)
-        editPrefs.apply()
-        return price
-    }
+
 
 
 

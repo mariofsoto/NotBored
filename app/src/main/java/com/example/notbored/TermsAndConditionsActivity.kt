@@ -7,6 +7,10 @@ import com.example.notbored.databinding.ActivityTermsAndConditionsBinding
 
 class TermsAndConditionsActivity : AppCompatActivity() {
 
+    /**
+     * Shows a large text on a ScrollView and can head back to [MainActivity].
+     * */
+
     private lateinit var binding : ActivityTermsAndConditionsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
