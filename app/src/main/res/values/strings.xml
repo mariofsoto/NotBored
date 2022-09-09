@@ -28,4 +28,6 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
     <string name="seekbar_text">Price range : %1$s</string>
     <string name="seekbar_random_price">Random price</string>
     <string name="activities">Activities</string>
+    <string name="title">title</string>
+    <string name="todo">TODO</string>
 </resources>
