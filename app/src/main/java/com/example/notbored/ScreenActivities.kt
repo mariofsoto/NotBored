@@ -1,5 +1,6 @@
 package com.example.notbored
 
+import MyListAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,11 +18,12 @@ class ScreenActivities : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val arrayAdapter: ArrayAdapter<*>
+        val actividades = arrayOf<String>("Education","Recreational","Social","Diy","Charity","Cooking","Relaxation","Music","Busywork")
 
-        val actividades = mutableListOf("Education","Recreational","Social","Diy","Charity","Cooking","Relaxation","Music","Busywork")
+        val arrayAdapter = MyListAdapter(this,actividades)
 
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, actividades)
+        //arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, actividades)
+
         binding.lvActivities.adapter = arrayAdapter
         binding.lvActivities.setOnItemClickListener(){parent, _, position, _ ->
             Toast.makeText(this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show()
