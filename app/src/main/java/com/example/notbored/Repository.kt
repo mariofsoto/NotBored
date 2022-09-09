@@ -10,9 +10,23 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.lang.Exception
 
+
+/**
+ * Class to handle api calls according to needs from view.
+ * */
 class Repository {
     private val api: BoredApi = RetrofitClient.getInstance().create(BoredApi::class.java)
 
+
+    /**
+     * Returns a [BoredEvent] from the api call as [LiveData] to be observed on main thread.
+     * Function manages to make the specific api call according to value of [type],
+     * [participants], [minPrice] and [maxPrice].
+     * @param participants if is "-1" means that is participants number is random.
+     * @param maxPrice if max and min price are 1 and 0 respectively, means that the
+     * price is random.
+     *
+     * */
     fun getBoredEvent(type: String, participants: Int, minPrice : Float, maxPrice : Float) :
             LiveData<BoredEvent> =
         liveData {

@@ -11,6 +11,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
+
+    /**
+     * Shows and validates terms and conditions and input passed on EditText.
+     * Can go to [ScreenActivities] or [TermsAndConditionsActivity].
+     *
+     * */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +34,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * If input from EditText is a number and Checkbox is checked, executes the given function.
+     * @param function executes only if terms are validated.
+     * */
     private fun validation(function:()-> Unit){
         val validation = BoredValidation(binding.startButton)
         validation.validateInputText(
@@ -41,11 +51,23 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    /**
+     * Starts given activity.
+     * @param cls activity to go to.
+     * */
     private fun goToActivity(cls : Class<*>){
         val goToActivity = Intent(this,cls)
         startActivity(goToActivity)
     }
 
+
+    /**
+     * Saved every preference when executed. If EditText is empty, [saveParticipants] as -1.
+     * @see Repository used preferences to be passed on to repository.
+     * @sample BoredPreferences.PARTICIPANTS
+     * @sample BoredPreferences.MAX_PRICE
+     * @sample BoredPreferences.MIN_PRICE
+     * */
     private fun savePreferences(){
         val participants = binding.participantsEditText.text.toString()
         val minPrice = binding.rangeSlider.values[0]

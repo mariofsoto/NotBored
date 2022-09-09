@@ -6,6 +6,12 @@ import retrofit2.http.Query
 
 interface BoredApi {
 
+    /**
+     * @see BoredEvent data class to capture bored api data
+     * @return desired [BoredEvent] depending on function parameters passed to function
+     * @sample getBoredEvent returns a random activity
+     * */
+
     @GET("activity")
     suspend fun getBoredEvent() : Response<BoredEvent>
 
