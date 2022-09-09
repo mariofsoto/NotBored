@@ -32,4 +32,6 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
         <item>0.0</item>
         <item>1.0</item>
     </string-array>
+    <string name="title">title</string>
+    <string name="todo">TODO</string>
 </resources>

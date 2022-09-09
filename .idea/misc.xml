@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_format_list_bulleted_36.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_arrow_24.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_money_36.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person_36.xml" value="0.1" />
@@ -20,6 +21,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_suggestion.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/custom_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/pantalla_prueba.xml" value="0.25" />
       </map>
     </option>
