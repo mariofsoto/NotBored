@@ -10,6 +10,11 @@ import androidx.core.widget.doOnTextChanged
 
 class BoredValidation(private val button : Button) {
 
+    /** Validates inputs passed on input. Shows an error message and disables button.
+     * @param editText Validates input from an [EditText].
+     * @param errorText is visible only when validation is needed.
+     * @see validateInputText
+     * */
     private fun validateParticipants(editText : CharSequence?, errorText: TextView){
         when{
             editText.isNullOrEmpty() -> goodToGo(errorText)
@@ -20,12 +25,22 @@ class BoredValidation(private val button : Button) {
     }
 
 
+    /**
+     * Whenever input text is changed, executes validation.
+     * @see validateParticipants
+     * */
     fun validateInputText(input:EditText, error: TextView){
         input.doOnTextChanged { text, _, _, _ ->
             validateParticipants(text,error)
         }
     }
 
+    /**
+    * Validate terms and conditions and executes a function passed when checkbox is checked.
+     * @param error shows error text when checkbox is not checked
+     * @param function executes a function when validation is OK.
+    *
+    * */
     fun validateTerms(checkBox : CheckBox, error: TextView, function : ()->Unit){
         button.setOnClickListener {
             if(!checkBox.isChecked) error.visibility = View.VISIBLE else function()
@@ -37,11 +52,18 @@ class BoredValidation(private val button : Button) {
 
     }
 
+    /**
+     * Enables button on main activity and makes invisible any related error text.
+     * */
     private fun goodToGo(errorText: TextView){
         button.isEnabled = true
         errorText.visibility = View.INVISIBLE
     }
 
+
+    /**
+     * Disables button on main activity and makes visible any error relared text.
+     * */
     private fun checkValidation(errorText: TextView){
         button.isEnabled = false
         errorText.visibility = View.VISIBLE
