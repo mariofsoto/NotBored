@@ -14,7 +14,6 @@ import java.lang.Exception
 class Repository {
     private val api: BoredApi = RetrofitClient.getInstance().create(BoredApi::class.java)
 
-
     /**
      * Returns a [BoredEvent] from the api call as [LiveData] to be observed on main thread.
      * Function manages to make the specific api call according to value of [type],
@@ -34,23 +33,40 @@ class Repository {
             try {
                 val response = when {
                     randomType && randomPrice && randomParticipants -> api.getBoredEvent()
-                    randomType && randomParticipants -> api.getBoredEvent(minPrice, maxPrice)
-                    randomType && randomPrice -> api.getBoredEvent(participants)
-                    randomType -> api.getBoredEvent(participants, minPrice, maxPrice)
-                    randomPrice && randomParticipants -> api.getBoredEvent(type)
-                    randomParticipants -> api.getBoredEvent(type, minPrice, maxPrice)
-                    randomPrice -> api.getBoredEvent(type, participants)
-                    else -> api.getBoredEvent(type, participants, minPrice, maxPrice)
+                    randomType && randomParticipants ->
+                        api.getBoredEvent(
+                            minPrice = minPrice,
+                            maxPrice = maxPrice)
+                    randomType && randomPrice ->
+                        api.getBoredEvent(
+                            participants = participants)
+                    randomType ->
+                        api.getBoredEvent(
+                            participants = participants,
+                            minPrice = minPrice,
+                            maxPrice = maxPrice)
+                    randomPrice && randomParticipants ->
+                        api.getBoredEvent(type = type)
+                    randomParticipants ->
+                        api.getBoredEvent(
+                            type = type,
+                            minPrice= minPrice,
+                            maxPrice = maxPrice)
+                    randomPrice -> api.getBoredEvent(
+                        type = type,
+                        participants = participants)
+                    else -> api.getBoredEvent(
+                        type = type,
+                        participants = participants,
+                        minPrice =  minPrice,
+                        maxPrice = maxPrice)
                 }
 
                 if (response.isSuccessful) {
                     response.body()?.let {
                         emit(it)
                     }
-                    Log.d(
-                        TAG, "getBoredEvent with $type $participants price ($minPrice," +
-                                "$maxPrice): $response"
-                    )
+                    Log.d(TAG, "getBoredEvent: $response")
                 }
 
             } catch (e: Exception) {

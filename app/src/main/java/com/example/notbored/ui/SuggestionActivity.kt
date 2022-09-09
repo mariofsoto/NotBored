@@ -35,10 +35,7 @@ class SuggestionActivity : AppCompatActivity() {
         isRandom = type == "random"
 
         observeEvent(type.lowercase(), participants, minPrice, maxPrice)
-        Log.d(
-            TAG, "onSuggestion: calling api with type:$type, participants: $participants," +
-                    " price ($minPrice, $maxPrice)"
-        )
+
 
         binding.topAppBar.title = type.boredCapitalize()
 

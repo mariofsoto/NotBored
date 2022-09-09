@@ -19,10 +19,12 @@
         <entry key="app/src/main/res/font/bebas_neue.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/font/bored.xml" value="0.15833333333333333" />
         <entry key="app/src/main/res/layout/activities_screen.xml" value="0.1078125" />
+        <entry key="app/src/main/res/layout/activity_ejemplo.xml" value="0.1375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_suggestion.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_list.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/fragment_ejemplo.xml" value="0.165" />
         <entry key="app/src/main/res/layout/pantalla_prueba.xml" value="0.25" />
       </map>
     </option>

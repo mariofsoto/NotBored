@@ -17,7 +17,7 @@
         android:fontFamily="@font/roboto_medium"
         android:text="@string/not_bored_title"
         android:letterSpacing="0.1"
-        android:textSize="@dimen/title"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

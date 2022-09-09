@@ -12,47 +12,12 @@ interface BoredApi {
      * @return desired [BoredEvent] depending on function parameters passed to function
      * @sample getBoredEvent returns a random activity
      * */
-
-    @GET("activity")
-    suspend fun getBoredEvent(): Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(@Query("type") type: String): Response<BoredEvent>
-
     @GET("activity")
     suspend fun getBoredEvent(
-        @Query("minprice") minPrice: Float, @Query("maxprice") maxPrice:
-        Float
+        @Query("type") type: String? = null,
+        @Query("minprice") minPrice: Float? = null,
+        @Query("maxprice") maxPrice: Float? = null,
+        @Query("participants") participants: Int? = null,
     ): Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(@Query("participants") participants: Int): Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(
-        @Query("type") type: String, @Query("participants")
-        participants: Int
-    ): Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(
-        @Query("type") type: String, @Query("participants")
-        participants: Int, @Query("minprice") minPrice: Float, @Query("maxprice") maxPrice: Float
-    ):
-            Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(
-        @Query("participants")
-        participants: Int, @Query("minprice") minPrice: Float, @Query("maxprice") maxPrice: Float
-    ):
-            Response<BoredEvent>
-
-    @GET("activity")
-    suspend fun getBoredEvent(
-        @Query("type") type: String, @Query("minprice") minPrice: Float,
-        @Query("maxprice") maxPrice: Float
-    ): Response<BoredEvent>
-
 
 }

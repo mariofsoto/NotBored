@@ -16,8 +16,6 @@ import com.example.notbored.utils.Utils
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-
     /**
      * Shows and validates terms and conditions and input passed on EditText.
      * Can go to [ScreenActivities] or [TermsAndConditionsActivity].
@@ -35,10 +33,7 @@ class MainActivity : AppCompatActivity() {
         Utils.customCheckBox(binding.termsCheckBox) {
             goToActivity(TermsAndConditionsActivity::class.java)
         }
-
-
     }
-
 
     /**
      * If input from EditText is a number and Checkbox is checked, executes the given function.
@@ -66,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(goToActivity)
     }
 
-
     /**
      * Saved every preference when executed. If EditText is empty, [saveParticipants] as -1.
      * @see Repository used preferences to be passed on to repository.
@@ -87,18 +81,8 @@ class MainActivity : AppCompatActivity() {
 
         editPreferences.putFloat(BoredPreferences.MIN_PRICE.value, minPrice)
         editPreferences.putFloat(BoredPreferences.MAX_PRICE.value, maxPrice)
-
         editPreferences.apply()
-        Log.d(
-            TAG, "saved price range ($minPrice , $maxPrice) and $participants into shared " +
-                    "folder ${
-                        boredPrefs
-                            .all
-                    }"
-        )
-
     }
-
 
     private fun SharedPreferences.Editor.saveParticipants(int: Int) {
         this.putInt(BoredPreferences.PARTICIPANTS.value, int)
