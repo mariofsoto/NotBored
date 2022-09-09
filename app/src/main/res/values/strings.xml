@@ -34,4 +34,5 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque
     </string-array>
     <string name="title">title</string>
     <string name="todo">TODO</string>
+    <string name="no_activity_error">No activity found with the specified parameters</string>
 </resources>

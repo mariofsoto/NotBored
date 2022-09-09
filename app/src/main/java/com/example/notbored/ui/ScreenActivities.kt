@@ -1,8 +1,10 @@
-package com.example.notbored
+package com.example.notbored.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.notbored.ui.adapters.MyListAdapter
+import com.example.notbored.R
 import com.example.notbored.databinding.ActivitiesScreenBinding
 
 class ScreenActivities : AppCompatActivity() {
@@ -48,7 +50,10 @@ class ScreenActivities : AppCompatActivity() {
         }
 
     }
-
+    /**
+     * Starts given activity.
+     * @param cls activity to go to.
+     * */
     private fun goToActivity(cls: Class<*>, type: String) {
         val goToActivity = Intent(this, cls)
             .putExtra("type", type)

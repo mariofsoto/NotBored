@@ -1,4 +1,4 @@
-package com.example.notbored
+package com.example.notbored.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,7 @@ class TermsAndConditionsActivity : AppCompatActivity() {
      * Shows a large text on a ScrollView and can head back to [MainActivity].
      * */
 
-    private lateinit var binding : ActivityTermsAndConditionsBinding
+    private lateinit var binding: ActivityTermsAndConditionsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTermsAndConditionsBinding.inflate(layoutInflater)

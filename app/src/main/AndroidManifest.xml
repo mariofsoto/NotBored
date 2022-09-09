@@ -17,19 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".TermsAndConditionsActivity"
+            android:name=".ui.TermsAndConditionsActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".ScreenActivities"
+            android:name=".ui.ScreenActivities"
             android:exported="false">
         </activity>
         <activity
-            android:name=".SuggestionActivity"
+            android:name=".ui.SuggestionActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

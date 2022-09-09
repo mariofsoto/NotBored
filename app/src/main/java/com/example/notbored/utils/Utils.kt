@@ -1,4 +1,4 @@
-package com.example.notbored
+package com.example.notbored.utils
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
@@ -9,7 +9,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.CheckBox
-import java.util.*
+import com.example.notbored.model.BoredPreferences
 
 const val TAG = "bootcamp"
 const val BORED_PREFERENCES = "bored"
@@ -17,13 +17,13 @@ const val BORED_PREFERENCES = "bored"
 
 object Utils {
 
-/**
- * receives a checkbox and creates a custom one with a spannable clickable string
- * for terms and conditions
- * @param checkBox [CheckBox] checkbox for terms and conditions
- * @param function executes this functions when clickable string is clicked
- * */
-    fun customCheckBox(checkBox : CheckBox, function: () -> Unit) {
+    /**
+     * receives a checkbox and creates a custom one with a spannable clickable string
+     * for terms and conditions
+     * @param checkBox [CheckBox] checkbox for terms and conditions
+     * @param function executes this functions when clickable string is clicked
+     * */
+    fun customCheckBox(checkBox: CheckBox, function: () -> Unit) {
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 widget.cancelPendingInputEvents()
@@ -38,7 +38,12 @@ object Utils {
         }
 
         val partialLinkText = SpannableString("Agree on Terms and Conditions")
-        partialLinkText.setSpan(clickableSpan, 9, partialLinkText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        partialLinkText.setSpan(
+            clickableSpan,
+            9,
+            partialLinkText.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         checkBox.text = partialLinkText
         checkBox.movementMethod = LinkMovementMethod.getInstance()
@@ -51,27 +56,18 @@ object Utils {
      * @sample BoredPreferences.MAX_PRICE
      * @sample BoredPreferences.MIN_PRICE
      * */
-    fun getSharedValue(context: Context, key:BoredPreferences) : Any {
+    fun getSharedValue(context: Context, key: BoredPreferences): Any {
         val boredPreferences = context.getSharedPreferences(BORED_PREFERENCES, MODE_PRIVATE)
         val editPrefs = boredPreferences.edit()
-        val value = when(key){
-            BoredPreferences.PARTICIPANTS -> boredPreferences.getInt(key.value,0)
-            BoredPreferences.MAX_PRICE -> boredPreferences.getFloat(key.value,0f)
-            BoredPreferences.MIN_PRICE -> boredPreferences.getFloat(key.value,0f)
+        val value = when (key) {
+            BoredPreferences.PARTICIPANTS -> boredPreferences.getInt(key.value, 0)
+            BoredPreferences.MAX_PRICE -> boredPreferences.getFloat(key.value, 0f)
+            BoredPreferences.MIN_PRICE -> boredPreferences.getFloat(key.value, 0f)
         }
         editPrefs.apply()
         return value
 
     }
-
-
-
-
-
-
-
-
-
 
 
 }

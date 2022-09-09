@@ -1,4 +1,4 @@
-package com.example.notbored
+package com.example.notbored.service
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
     private const val BASE_URL = "http://www.boredapi.com/api/"
 
-    fun getInstance() : Retrofit{
+    fun getInstance(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
